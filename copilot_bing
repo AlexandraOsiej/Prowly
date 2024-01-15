@@ -1,0 +1,34 @@
+Feature: Using "copilot" of "bing.com" in different conversation styles to gather information about Prowly's media monitoring module
+
+Scenario: Using "copilot" in "Balanced" style
+    Given I am on the Copilot page: "https://www.bing.com/search?q=Bing+AI&showconv=1"
+      And I am unsigned user
+      And I use default settings of search engine
+    When I choose "Balanced" style of the conversation
+      And I enter "What is the best advantage of the Prowly's media monitoring module?" in the text input field
+      And I click "Submit" button
+    Then I am presented with the information about advantages of the Prowly's media monitoring module
+      And all mentioned advantages are equally listed
+
+Scenario: Using "copilot" in "Creative" style
+    Given I am on the Copilot page: "https://www.bing.com/search?q=Bing+AI&showconv=1"
+      And I am unsigned user
+      And I use default settings of search engine
+    When I choose "Creative" style of the conversation
+      And I enter "What is the best advantage of the Prowly's media monitoring module?" in the text input field
+      And I click "Submit" button
+    Then I am presented with the information about advantages of the Prowly's media monitoring module
+      And information is presented as a whole text with no list
+      And the advantage more connected with the possibilities of the tool is mentioned as a first one 
+      
+
+Scenario: Using "copilot" in "Precise" style
+    Given I am on the Copilot page: "https://www.bing.com/search?q=Bing+AI&showconv=1"
+      And I am unsigned user
+      And I use default settings of search engine
+    When I choose "Precise" style of the conversation
+      And I enter "What is the best advantage of the Prowly's media monitoring module?" in the text input field
+      And I click "Submit" button
+    Then I am presented with the information about advantages of the Prowly's media monitoring module
+      And the advantage more connected with preventing PR crises is highlighted, as a most significant one 
+      And other advantages are equally listed below
