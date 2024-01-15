@@ -1,0 +1,39 @@
+Feature: Searching for "Prowly Media Monitoring" on "bing.com" with filtering by content categories
+
+Scenario: Searching with "All" content category as a filter
+    Given I am on the "bing.com" page
+      And a content category filter is set as the "All" by default
+      And I am unsigned user
+      And I use default settings of the search engine
+    When I enter "Prowly Media Monitoring" in the search box field
+      And I click "Search the web" button
+    Then I am moved to the search result page
+      And a search box field at the top of the page is populated with a "Prowly Media Monitoring" phrase
+      And the "Search" content category filter is highlighted as an active one
+      And the search result content consists of website links, videos, examples of related searches, examples of search phrases to ask Bing Chat
+      And the first searched record is a link that directs to the Prowly's media monitoring page "https://prowly.com/media-monitoring/" 
+      And the rest of the search result is connected substantively to the searched phrase 
+      
+Scenario: Searching with "Images" content category as a filter
+    Given I am on the result page of the search of the "Prowly Media Monitoring" in Microsoft Bing: "https://www.bing.com/search?q=Prowly+Media+Monitoring"
+      And I am unsigned user
+      And I use default settings of the search engine
+    When I click "Images" content category filter
+    Then I am moved to the images search result page
+      And a search box field at the top of the page is still populated with a "Prowly Media Monitoring" phrase
+      And the "Images" content category filter is highlighted as an active one
+      And the search result content consists of images only
+      And the first search results are connected substantively to Prowly's media monitoring
+      And the rest of the search results is related to the monitoring media
+
+Scenario: Searching with "Videos" content category as a filter
+    Given I am on the result page of the search of the "Prowly Media Monitoring" in Microsoft Bing: "https://www.bing.com/search?q=Prowly+Media+Monitoring"
+      And I am unsigned user
+      And I use default settings of the search engine
+    When I click "Videos" content category filter
+    Then I am moved to the videos search result page
+      And a search box field at the top of the page is still populated with a "Prowly Media Monitoring" phrase
+      And the "Videos" content category filter is highlighted as an active one
+      And the search result content consists of videos only
+      And the first search result is a Prowly's media monitoring Youtube video titled "Media Monitoring | Prowly" 
+      And the rest of the search results is connected substantively to the searched phrase 
